@@ -2,16 +2,16 @@ import React from "react";
 
 const NavCategories = () => {
     const categories = [
-        { id: 1, name: "categoria 2" },
-        { id: 2, name: "categoria 3" },
-        { id: 3, name: "categoria 4" },
+        { id: 1, name: "Perros" },
+        { id: 2, name: "Gatos" },
+        { id: 3, name: "Otros" },
     ];
 
     return (
         <nav>
         {categories.map((category) => {
                 return (
-                    <a key={category.id} style={styles.categorias} href="">
+                    <a key={category.id} style={styles.categorias}>
                         {category.name}
                     </a>
                 );
@@ -22,8 +22,7 @@ const NavCategories = () => {
 
 export const styles = {
     categorias: {
-        margin: 10,
-        color: "red",
+        margin: 30,
     },
 };
 
