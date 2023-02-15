@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./components/Header/NavBar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemListContainer from "./Containers/ItemListContainer";
+import ItemCount from "./components/ItemCount"
 
 const  App = () => {
   
@@ -9,7 +10,7 @@ const  App = () => {
   return (
     <>
       <NavBar />
-      <ItemListContainer greeting={texto}/>
+      <ItemListContainer greeting={texto} />
     </>
   );
 }
