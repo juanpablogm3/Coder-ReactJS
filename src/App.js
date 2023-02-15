@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./components/Header/NavBar";
 import ItemListContainer from "./Containers/ItemListContainer";
-import ItemCount from "./components/ItemCount"
+
 
 const  App = () => {
   
