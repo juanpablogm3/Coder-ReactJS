@@ -10,7 +10,7 @@ const viewport = {
 const Item = ({product}) => {
     return (
         <div style={style.container}>
-            <img src={product.image} alt={product.title} style={{width:'70%'}} />
+            <img src={product.image} alt={product.title} style={{width:'50%'}} />
             <h3>{product.title}</h3>
             <p>${product.price}</p>
             <ItemCount stock={5} /* onAdd={onAdd} */ />
@@ -21,6 +21,7 @@ const Item = ({product}) => {
 const style = {
     container:{
         width: viewport.width > 900 ? '30%' : '90%',
+
       },
 }
 

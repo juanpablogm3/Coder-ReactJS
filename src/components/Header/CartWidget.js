@@ -1,8 +1,8 @@
 import React from "react";
-import Cart from "@mui/icons-material/ShoppingCart";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const CartWidget = () => {
-    return <Cart fontSize="large" />
+    return <ShoppingCartIcon fontSize="large" />
 }
 
 export default CartWidget;

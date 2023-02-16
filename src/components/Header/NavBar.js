@@ -1,24 +1,26 @@
 import React from "react";
-import logo from "../../assets/logo patitas.png";
+import logo from "../../assets/React Logo.png";
 import Badge from '@mui/material/Badge';
 import CartWidget from "./CartWidget";
 import NavCategories from "./NavCategories";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
-    return (
-        <header style={styles.container}>
-            <a style={styles.imagenes}>
-                <img style={styles.imagenes} src={logo} alt="logo corazón con patita" />
-            </a>
-            <h1>Patitas Petshop</h1>
-
-            <NavCategories />
-
-            <Badge badgeContent={4} color="error">
-                <CartWidget />
-            </Badge>
-        </header>
-    );
+  return (
+    <header style={styles.container}>
+      <Link style={styles.imagenes} to={"/"}>
+        <img style={styles.imagenes} src={logo} alt="logo ReactJS" />
+      </Link>
+      <h1>ReactJS Ecommerce</h1>
+      
+      <NavCategories />
+      <Link to={"/cart"}>
+        <Badge badgeContent={4} color="error">
+          <CartWidget />  
+        </Badge>
+      </Link>
+    </header>
+  );
 };
 
 const viewport = {

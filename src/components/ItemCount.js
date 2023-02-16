@@ -26,14 +26,9 @@ const ItemCount = ({ onAdd, stock }) => {
 
 const style = {
     center: {
-      display: "flex",
-      justifyContent: 'center'
+        display: "flex",
+        justifyContent: 'center'
     },
-  };
-
-
-
-
-
+};
 
 export default ItemCount;
