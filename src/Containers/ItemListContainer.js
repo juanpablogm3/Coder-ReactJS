@@ -36,13 +36,13 @@ export const ItemListContainer = ({ greeting }) => {
         <>
             <h1>{greeting}</h1>
             {!error ? (
-            <>
-                {products.length ? (
-                    <ItemList products={products} />
-                ) : (
-                    <h1>Cargando...</h1>
-                )}
-            </>
+                <>
+                    {products.length ? (
+                        <ItemList products={products} />
+                    ) : (
+                        <h1>Cargando...</h1>
+                    )}
+                </>
             ) : (
                 <h1>Hubo un error</h1>
             )}
