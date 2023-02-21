@@ -16,9 +16,9 @@ const ItemCount = ({ onAdd, stock }) => {
 
     return (
         <div style={style.center}>
-            <button onClick={handlerSubtract}>Restar</button>
+            <button onClick={handlerSubtract}>-</button>
             <h4>{count}</h4>
-            <button onClick={handlerAdd}>Sumar</button>
+            <button onClick={handlerAdd}>+</button>
             <button onClick={handlerSelect}>Agregar al Carrito</button>
         </div>
     );

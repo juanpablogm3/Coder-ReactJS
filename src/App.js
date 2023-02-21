@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "./components/Header/NavBar";
-import ItemListContainer from "./Containers/ItemListContainer";
-import { ItemDetailContainer } from "./Containers/ItemDetailContainer";
-import Cart from "./Containers/Cart";
+import ItemListContainer from "./containers/ItemListContainer";
+import { ItemDetailContainer } from "./containers/ItemDetailContainer";
+import Cart from "./containers/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
             element={<ItemDetailContainer greeting={greeting} />}
           />
 
-          {/* <Route path="/cart" element={<Cart />} /> */}
+          <Route path="/cart" element={<Cart />} />
 
 
         </Routes>

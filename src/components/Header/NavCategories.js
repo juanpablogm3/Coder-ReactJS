@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 
 const NavCategories = () => {
     const categories = [
-        { id: 1, name: "electronics", route:'/categories/electronics' },
-        { id: 2, name: "jewelery", route:'/categories/jewelery'},
-        { id: 3, name: "men's clothing", route:"/categories/men's clothing"},
-        { id: 4, name: "women's clothing", route:"/categories/women's clothing"}
+        { id: 1, name: "Electronics", route:'/categories/electronics' },
+        { id: 2, name: "Jewelery", route:'/categories/jewelery'},
+        { id: 3, name: "Men's clothing", route:"/categories/men's clothing"},
+        { id: 4, name: "Women's clothing", route:"/categories/women's clothing"}
     ];
 
     return (
@@ -24,7 +24,8 @@ const NavCategories = () => {
 
 export const styles = {
     categorias: {
-        margin: 30,
+        margin: 15,
+        color: "white"
     },
 };
 
