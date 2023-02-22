@@ -25,7 +25,8 @@ const NavCategories = () => {
 export const styles = {
     categorias: {
         margin: 15,
-        color: "white"
+        color: "white",
+        textDecoration: "none"
     },
 };
 

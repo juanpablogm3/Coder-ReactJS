@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 export const ItemListContainer = ({ greeting }) => {
@@ -8,10 +9,6 @@ export const ItemListContainer = ({ greeting }) => {
     const [error, setError] = useState(false);
     const { name } = useParams();
     const URL = name? `https://fakestoreapi.com/products/category/${name}`: 'https://fakestoreapi.com/products';
-
-    //`https://fakestoreapi.com/products/category/${name}`
-    //'https://fakestoreapi.com/products' 
-    
     
     useEffect(() => {
         const getProducts = async () => {
@@ -34,13 +31,13 @@ export const ItemListContainer = ({ greeting }) => {
         
     return (
         <>
-            <h1>{greeting}</h1>
+            <h1 style={{textAlign:"center"}} >{greeting}</h1>
             {!error ? (
                 <>
                     {products.length ? (
                         <ItemList products={products} />
                     ) : (
-                        <h1>Cargando...</h1>
+                        <CircularProgress style={styles.loader}/>
                     )}
                 </>
             ) : (
@@ -51,3 +48,11 @@ export const ItemListContainer = ({ greeting }) => {
 }
 
 export default ItemListContainer;
+
+const styles ={
+    loader:{
+        position:"absolute",
+        left: document.documentElement.clientWidth/2,
+        top: document.documentElement.clientHeight/2
+    }
+}

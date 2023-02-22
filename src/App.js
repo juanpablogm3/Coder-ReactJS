@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
 
-  const greeting = "Las Mejores Ofertas";
+  const greeting = "Listado de productos";
 
   return (
     <>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 export const ItemDetailContainer = ( ) => {
@@ -26,7 +27,15 @@ export const ItemDetailContainer = ( ) => {
 
   return (
     <>
-      {<>{loading ? <h1>Cargando...</h1> : <ItemDetail product={product} />}</>}
+      {<>{loading ? <CircularProgress style={styles.loader}/> : <ItemDetail product={product} />}</>}
     </>
   );
 };
+
+const styles ={
+  loader:{
+      position:"absolute",
+      left: document.documentElement.clientWidth/2,
+      top: document.documentElement.clientHeight/2
+  }
+}

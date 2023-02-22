@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import Button from '@mui/material/Button';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const ItemCount = ({ onAdd, stock }) => {
     const [count, setCount] = useState(1);
@@ -16,18 +18,21 @@ const ItemCount = ({ onAdd, stock }) => {
 
     return (
         <div style={style.center}>
-            <button onClick={handlerSubtract}>-</button>
-            <h4>{count}</h4>
-            <button onClick={handlerAdd}>+</button>
-            <button onClick={handlerSelect}>Agregar al Carrito</button>
+            <Button variant="contained" onClick={handlerSubtract}>-</Button>
+            <h4>   {count}   </h4>
+            <Button variant="contained" onClick={handlerAdd}>+</Button>
+            <Button variant="outlined" onClick={handlerSelect}>
+                <AddShoppingCartIcon />
+            </Button>
         </div>
     );
 };
 
 const style = {
     center: {
+        marginLeft: 45,
         display: "flex",
-        justifyContent: 'center'
+        alignItems: "center",
     },
 };
 

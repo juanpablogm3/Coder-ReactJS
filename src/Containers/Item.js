@@ -4,20 +4,21 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  Button,
   CardActionArea,
   CardActions,
 } from "@mui/material";
 import {Link} from 'react-router-dom'
+import ItemCount from "../components/ItemCount"
+
 
 const Item = ({ product }) => {
   return (
-    
-    <Card sx={{ maxWidth: 345 }} style={styles.container}>
+    <Card sx={{ maxWidth: 300 }} style={styles.container}>
       <CardActionArea>
+      <Link to={`/product/${product.id}`} style={{textDecoration: "none"}}>
         <CardMedia
           component="img"
-          height="140"
+          height="200"
           image={product.image}
           alt={product.title}
         />
@@ -34,13 +35,10 @@ const Item = ({ product }) => {
             ${product.price}
           </Typography>
         </CardContent>
+        </Link>
       </CardActionArea>
       <CardActions>
-        <Link to={`/product/${product.id}`}>
-          <Button size="small" color="primary">
-            Ver Detalles
-          </Button>
-          </Link>
+        <ItemCount />
       </CardActions>
     </Card>
   );
@@ -49,11 +47,9 @@ const Item = ({ product }) => {
 const styles = {
   container: {
     width: window.innerHeight > 900 ? "25%" : "90%",
+    display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
     margin: 20,
-    backgroundColor: "rgba(249, 220, 92, 0.3)",
   },
   title: {
     textOverflow: "ellipsis",

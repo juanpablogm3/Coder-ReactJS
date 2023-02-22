@@ -22,11 +22,11 @@ const NavBar = () => {
     </header>
   );
 };
-
 const viewport = {
   width: document.documentElement.clientWidth,
   height: document.documentElement.clientHeight,
 };
+
   
 const styles = {
   container: {
@@ -37,7 +37,7 @@ const styles = {
     paddingLeft: "10%",
     paddingRight: "10%",
     background: 'linear-gradient(rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))',
-    color: "white",
+    color: "white"
   },
   imagenes: {
     height: "90%",
