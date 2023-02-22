@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import {Link} from 'react-router-dom'
 import ItemCount from "../components/ItemCount"
+import { blue } from '@mui/material/colors';
 
 
 const Item = ({ product }) => {
@@ -24,6 +25,7 @@ const Item = ({ product }) => {
         />
         <CardContent>
           <Typography
+            color={blue[700]}
             gutterBottom
             variant="h5"
             component="div"

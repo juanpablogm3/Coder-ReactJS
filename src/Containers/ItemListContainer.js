@@ -52,7 +52,10 @@ export default ItemListContainer;
 const styles ={
     loader:{
         position:"absolute",
-        left: document.documentElement.clientWidth/2,
-        top: document.documentElement.clientHeight/2
+        margin: "auto",
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0
     }
 }

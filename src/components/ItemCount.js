@@ -18,10 +18,10 @@ const ItemCount = ({ onAdd, stock }) => {
 
     return (
         <div style={style.center}>
-            <Button variant="contained" onClick={handlerSubtract}>-</Button>
-            <h4>   {count}   </h4>
-            <Button variant="contained" onClick={handlerAdd}>+</Button>
-            <Button variant="outlined" onClick={handlerSelect}>
+            <Button variant="contained" style={style.button} onClick={handlerSubtract}>-</Button>
+            <h4>{count}</h4>
+            <Button variant="contained" style={style.button} onClick={handlerAdd}>+</Button>
+            <Button variant="outlined" style={style.button} onClick={handlerSelect}>
                 <AddShoppingCartIcon />
             </Button>
         </div>
@@ -30,10 +30,16 @@ const ItemCount = ({ onAdd, stock }) => {
 
 const style = {
     center: {
-        marginLeft: 45,
+        marginLeft: 28,
         display: "flex",
         alignItems: "center",
     },
+    button:{
+        margin: 5,
+        fontSize: 40,
+        height: 30,
+
+    }
 };
 
 export default ItemCount;
