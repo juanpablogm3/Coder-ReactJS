@@ -5,7 +5,7 @@ import {
   CardMedia,
   Typography,
   CardActionArea,
-  CardActions,
+  //CardActions,
 } from "@mui/material";
 import {Link} from 'react-router-dom'
 import ItemCount from "../components/ItemCount"
@@ -39,9 +39,9 @@ const Item = ({ product }) => {
         </CardContent>
         </Link>
       </CardActionArea>
-      <CardActions>
+{/*       <CardActions>
         <ItemCount />
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 };

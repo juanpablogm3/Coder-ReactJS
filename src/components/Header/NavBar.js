@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/React Logo.png";
-import Badge from '@mui/material/Badge';
+
 import CartWidget from "./CartWidget";
 import NavCategories from "./NavCategories";
 import { Link } from "react-router-dom";
@@ -11,17 +11,15 @@ const NavBar = () => {
       <Link style={styles.imagenes} to={"/"}>
         <img style={styles.imagenes} src={logo} alt="logo ReactJS" />
       </Link>
-      <h1>ReactJS Ecommerce</h1>
-      
+      <h1>ReactJS Ecommerce</h1>    
       <NavCategories />
       <Link to={"/cart"}>
-        <Badge badgeContent={4} color="error">
-          <CartWidget />  
-        </Badge>
+        <CartWidget />  
       </Link>
     </header>
   );
 };
+
 const viewport = {
   width: document.documentElement.clientWidth,
   height: document.documentElement.clientHeight,

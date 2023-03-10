@@ -24,10 +24,6 @@ export const ItemListContainer = ({ greeting }) => {
 
         getProducts();
     }, [name]);
-
-    /* const onAdd = (count) => {
-        console.log(`el usuario selecciono ${count} `);
-    }; */
         
     return (
         <>

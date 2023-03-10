@@ -12,16 +12,16 @@ const ItemCount = ({ onAdd, stock }) => {
     const handlerSubtract = () => {
         if (count > 1) setCount(count - 1);
     };
-    const handlerSelect = () => {
+/*     const handlerSelect = () => {
         if (stock > 0) onAdd(count);
     };
-
+ */
     return (
         <div style={style.center}>
-            <Button variant="contained" style={style.button} onClick={handlerSubtract}>-</Button>
+            <Button variant="contained" style={style.button} onClick={() => handlerSubtract()}>-</Button>
             <h4>{count}</h4>
-            <Button variant="contained" style={style.button} onClick={handlerAdd}>+</Button>
-            <Button variant="outlined" style={style.button} onClick={handlerSelect}>
+            <Button variant="contained" style={style.button} onClick={() => handlerAdd()}>+</Button>
+            <Button variant="outlined" style={style.button} onClick={() => onAdd(count)}>
                 <AddShoppingCartIcon />
             </Button>
         </div>
