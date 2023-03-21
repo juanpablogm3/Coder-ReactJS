@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import ItemCount from "../components/ItemCount";
 import { Link } from "react-router-dom";
 import { CustomContext } from "../context/CustomContext";
-import Rating from '@mui/material/Rating';
+//import Rating from '@mui/material/Rating';
 
 const ItemDetail = ({ product }) => {
 
@@ -20,8 +20,8 @@ const ItemDetail = ({ product }) => {
       <div style={styles.content}>
         <h1>{product.title}</h1>
         <span>{product.description}</span>
-        <h2>Rating </h2>
-        <Rating name="half-rating-read" defaultValue={product.rating.rate} precision={0.1} readOnly />
+       {/*  <h2>Rating </h2>
+        <Rating name="half-rating-read" defaultValue={product.rating.rate} precision={0.1} readOnly /> */}
         <h2>$ {product.price}</h2>
       </div>
       {isPressedButton ? (

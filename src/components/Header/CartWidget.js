@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from '@mui/material/Badge';
+import { CustomContext } from "../../context/CustomContext";
 
-const CartWidget = () => {
+export const CartWidget = () => {
+    const { totals } = useContext(CustomContext);
     return (
-        <Badge badgeContent={4} color="error">
+        <Badge badgeContent={totals.qty > 0 && <p>{totals.qty}</p>} color="error">
             <ShoppingCartIcon fontSize="large" style={{ color: 'white' }} />
         </Badge>
     );

@@ -2,27 +2,34 @@ import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import CircularProgress from '@mui/material/CircularProgress';
+import { db } from "./../firebase/firestore";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 
 export const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
     const { name } = useParams();
-    const URL = name? `https://fakestoreapi.com/products/category/${name}`: 'https://fakestoreapi.com/products';
     
     useEffect(() => {
-        const getProducts = async () => {
-            try {
-                const res = await fetch(URL);
-                console.log("fetch a: "+URL);
-                const data = await res.json();
-                setProducts(data);
-            } catch {
-                setError(true);
-            }
-        };
-
-        getProducts();
+        const productsCollection = collection(db, "products");
+        const q = name
+          ? query(productsCollection, where("category", "==", name))
+          : productsCollection;
+    
+        getDocs(q)
+          .then((data) => {
+            const list = data.docs.map((product) => {
+              return {
+                ...product.data(),
+                id: product.id,
+              };
+            });
+            setProducts(list);
+          })
+          .catch(() => {
+            setError(true);
+          });
     }, [name]);
         
     return (
