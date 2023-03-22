@@ -5,6 +5,7 @@ import { ItemDetailContainer } from "./containers/ItemDetailContainer";
 import Cart from "./containers/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CustomProvider } from "./context/CustomContext";
+import { CheckoutForm } from "./containers/Checkout.js";
 
 const App = () => {
 
@@ -29,6 +30,8 @@ const App = () => {
             />
             
             <Route path="/cart" element={<Cart />} />
+
+            <Route path="/CheckoutForm" element={<CheckoutForm />} />
 
           </Routes>
         </CustomProvider>

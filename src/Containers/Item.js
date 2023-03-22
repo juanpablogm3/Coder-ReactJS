@@ -8,7 +8,6 @@ import {
   //CardActions,
 } from "@mui/material";
 import {Link} from 'react-router-dom'
-import ItemCount from "../components/ItemCount"
 import { blue } from '@mui/material/colors';
 
 
@@ -39,9 +38,6 @@ const Item = ({ product }) => {
         </CardContent>
         </Link>
       </CardActionArea>
-{/*       <CardActions>
-        <ItemCount />
-      </CardActions> */}
     </Card>
   );
 };

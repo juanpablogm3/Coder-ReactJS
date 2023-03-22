@@ -5,12 +5,15 @@ import { CustomContext } from "../../context/CustomContext";
 
 export const CartWidget = () => {
     const { totals } = useContext(CustomContext);
-    return (
-        <Badge badgeContent={totals.qty > 0 && <p>{totals.qty}</p>} color="error">
+    return ((totals.qty > 0)? 
+            <Badge badgeContent={totals.qty} color="error">
+                <ShoppingCartIcon fontSize="large" style={{ color: 'white' }} />
+            </Badge>
+        :
             <ShoppingCartIcon fontSize="large" style={{ color: 'white' }} />
-        </Badge>
-    );
-};
 
+    );
+    
+};
 
 export default CartWidget;

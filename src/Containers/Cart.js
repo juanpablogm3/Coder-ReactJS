@@ -1,19 +1,20 @@
-import React, { useContext } from "react";
-import { CustomContext } from "../context/CustomContext";
-import { Link } from "react-router-dom";
-import { collection, addDoc, serverTimestamp, doc, updateDoc } from "firebase/firestore";
-import { db } from "../firebase/firestore";
+import React, {useContext} from "react";
+import {CustomContext} from "../context/CustomContext";
+import {Link} from "react-router-dom";
+import {collection, addDoc, serverTimestamp, doc, updateDoc} from "firebase/firestore";
+import {db} from "../firebase/firestore";
+
 
 const Cart = ({ isRed, estilo }) => {
   const { cart, totals } = useContext(CustomContext);
 
-  const buyer = {
+/*   const buyer = {
     name: "Juan",
     apellido: "Perez",
     email: "juanperez@gmail.com",
-  };
+  }; */
 
-  const handlerClickSell = () => {
+/*   const handlerClickSell = () => {
     const sellCollection = collection(db, "sells");
     addDoc(
       sellCollection,
@@ -25,7 +26,7 @@ const Cart = ({ isRed, estilo }) => {
       }
     )
     .then(result=>console.log(result.id))
-  };
+  }; */
 
   const handlerStock = () => {
     const docReference = doc(db, 'products', '7dKvIMyRTeFJg5w62m4F');
@@ -63,7 +64,9 @@ const Cart = ({ isRed, estilo }) => {
             })}
           </div>
           <h1>Total : {totals.total}</h1>
-          <button onClick={handlerClickSell}>Comprar</button>
+          <Link to="/CheckoutForm">
+            <button>Comprar</button>
+          </Link>
         </>
       )}
     </>
@@ -77,7 +80,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    //margin: 50,
+    margin: 50,
   },
   image: {
     width: "30%",
