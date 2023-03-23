@@ -1,26 +1,24 @@
 import React, { useState, useContext } from 'react';
-//import firebase from 'firebase/compat/app'; //import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { CustomContext } from "../context/CustomContext";
 import {db} from "../firebase/firestore";
 import {collection, addDoc, serverTimestamp, doc, updateDoc} from "firebase/firestore";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 export const CheckoutForm = () => {
-    const { cart, totals } = useContext(CustomContext);
+    const {cart, totals} = useContext(CustomContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
     const [confirmationId, setConfirmationId] = useState('');
+    const MySwal = withReactContent(Swal);
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
-        //SOLO PARA CARGAR PRODS A FIREBASE
-        fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(json=>console.log(json))
 
 
         const sellCollection = collection(db, "orders");
@@ -35,28 +33,19 @@ export const CheckoutForm = () => {
             time: serverTimestamp(),
           }
         )
-        //.then(result=>console.log(result.id))
 
-
-   /*      // Add the user's information to Firestore
-        db.collection('orders').addDoc({
-        name,
-        email,
-        address,
-        timestamp: serverTimestamp()
-        }) */
         .then((docRef) => {
-        // Display the confirmation modal with the document ID
         setConfirmationId(docRef.id);
         setModalVisible(true);
         })
         .catch((error) => {
-        console.error("Error adding document: ", error);
+        console.error("Se produjo un error: ", error);
         });
   };
 
   return (
     <div>
+
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input type="text" id="name" value={name} onChange={(event) => setName(event.target.value)} />
@@ -71,13 +60,13 @@ export const CheckoutForm = () => {
       </form>
 
       {modalVisible && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Gracias por tu compra!</h2>
-            <p>El ID de tu compra es: {confirmationId}</p>
-            <button onClick={() => setModalVisible(false)}>Cerrar</button>
-          </div>
-        </div>
+        MySwal.fire({
+          title: <strong>Gracias por tu compra!</strong>,
+          html: <i>El ID de tu orden es: {confirmationId}</i>,
+          icon: 'success',
+        }).then(() => {
+          window.location.href = '/';
+        })
       )}
     </div>
   );

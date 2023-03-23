@@ -5,7 +5,7 @@ import {collection, addDoc, serverTimestamp, doc, updateDoc} from "firebase/fire
 import {db} from "../firebase/firestore";
 
 
-const Cart = ({ isRed, estilo }) => {
+const Cart = () => {
   const { cart, totals } = useContext(CustomContext);
 
 /*   const buyer = {
@@ -38,10 +38,10 @@ const Cart = ({ isRed, estilo }) => {
     <>
       {!cart.length ? (
         <>
-          <h1 className={isRed ? "rojo" : "azul"}>
-            No hay productos agregados, puedes verlos <Link to={"/"}>aca</Link>
+          <h1>
+            Tu carrito está vacío, puedes agregar productos desde <Link to={"/"}>aquí</Link>
           </h1>
-          <h2 className={`tamanio ${estilo || ""}`}>Gracias por tu visita</h2>
+          <h2>Gracias por tu visita</h2>
         </>
       ) : (
         <>
