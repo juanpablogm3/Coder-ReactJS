@@ -4,7 +4,7 @@ import CartWidget from "./CartWidget";
 import NavCategories from "./NavCategories";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (greeting) => {
   return (
     <header style={styles.container}>
       <Link style={styles.imagenes} to={"/"}>

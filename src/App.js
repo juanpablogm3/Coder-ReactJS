@@ -17,7 +17,7 @@ const App = () => {
         <CustomProvider>
           <Navbar />
           <Routes>
-            <Route path="/" element={<ItemListContainer greeting={greeting} />} />
+            <Route path="/" element={<ItemListContainer greeting={greeting} />}/>
 
             <Route
               path="/categories/:name"

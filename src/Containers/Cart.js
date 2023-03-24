@@ -1,38 +1,19 @@
 import React, {useContext} from "react";
 import {CustomContext} from "../context/CustomContext";
 import {Link} from "react-router-dom";
-import {collection, addDoc, serverTimestamp, doc, updateDoc} from "firebase/firestore";
+import Button from '@mui/material/Button';
+import {doc, updateDoc} from "firebase/firestore";
 import {db} from "../firebase/firestore";
 
 
 const Cart = () => {
   const { cart, totals } = useContext(CustomContext);
-
-/*   const buyer = {
-    name: "Juan",
-    apellido: "Perez",
-    email: "juanperez@gmail.com",
-  }; */
-
-/*   const handlerClickSell = () => {
-    const sellCollection = collection(db, "sells");
-    addDoc(
-      sellCollection,
-      {
-        buyer,
-        items: cart,
-        total: totals.total,
-        time: serverTimestamp(),
-      }
-    )
-    .then(result=>console.log(result.id))
-  }; */
-
+  console.log(cart);
   const handlerStock = () => {
-    const docReference = doc(db, 'products', '7dKvIMyRTeFJg5w62m4F');
-    updateDoc(docReference, {stock:50})
+    const docReference = doc(db, 'products', '5G145BGYpa42h9eHeAgH');
+    console.log(docReference.id);
+    //updateDoc(docReference, { id.stock : id.stock-product.quantity})
   };
-
 
   return (
     <>
@@ -64,9 +45,11 @@ const Cart = () => {
             })}
           </div>
           <h1>Total : {totals.total}</h1>
-          <Link to="/CheckoutForm">
-            <button>Comprar</button>
-          </Link>
+          <div style={{ textAlign: "center",marginBottom: 30}}>
+            <Link to="/CheckoutForm">
+              <Button variant="contained" onClick={handlerStock}>Comprar</Button>
+            </Link>
+          </div>
         </>
       )}
     </>
@@ -83,7 +66,7 @@ const styles = {
     margin: 50,
   },
   image: {
-    width: "30%",
+    width: 300,
   },
   content:{
     paddingLeft: 50,

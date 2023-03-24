@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
-import ItemCount from "../components/ItemCount";
+import ItemQuantitySelector from "../components/ItemQuantitySelector";
 import { Link } from "react-router-dom";
 import { CustomContext } from "../context/CustomContext";
+import Button from '@mui/material/Button';
 
 const ItemDetail = ({ product }) => {
 
@@ -11,24 +12,31 @@ const ItemDetail = ({ product }) => {
   const onAdd = (count) => {
     setIsPressedButton(true);
     addProduct(product, count);
+
   };
 
   return (
-    <div  style={styles.container}>
-      <img alt={product.title} src={product.image} style={styles.image} />
-      <div style={styles.content}>
-        <h1>{product.title}</h1>
-        <span>{product.description}</span>
-        <h2>$ {product.price}</h2>
-      </div>
+    <div style={{ textAlign: "center",}}>
+      <div  style={styles.container}>
+        <img alt={product.title} src={product.image} style={styles.image} />
+        <div style={styles.content}>
+          <h1>{product.title}</h1>
+          <span>{product.description}</span>
+          <h2>$ {product.price}</h2>   
+          <h2>stock: {product.stock}</h2>        
+        </div>
+      </div> 
       {isPressedButton ? (
-          <Link to="/cart">
-            <button>Finalizar compra</button>
-          </Link>
-        ) : (
-          <ItemCount onAdd={onAdd} />
-        )}
-    </div>
+        <Link to="/cart">
+          <Button variant="contained">Finalizar compra</Button>
+            </Link>
+      ) : (
+        <ItemQuantitySelector onAdd={onAdd} stock={product.stock}/>
+      )}
+      <Link to="/">
+        <Button variant="outlined">Volver al listado</Button>
+      </Link>
+    </div>  
   );
 };
 
@@ -42,10 +50,9 @@ const styles = {
     margin: 50,
   },
   image: {
-    width: "40%",
+    width: 300,
   },
   content:{
     paddingLeft: 50,
-
   }
 };

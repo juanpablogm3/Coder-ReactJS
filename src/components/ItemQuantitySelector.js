@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-const ItemCount = ({ onAdd, stock = 5 }) => {
+const ItemQuantitySelector = ({ onAdd, stock }) => {
     const [count, setCount] = useState(1);
 
     const handlerAdd = () => {
@@ -18,7 +18,7 @@ const ItemCount = ({ onAdd, stock = 5 }) => {
             <Button variant="contained" style={style.button} onClick={() => handlerSubtract()}>-</Button>
             <h4>{count}</h4>
             <Button variant="contained" style={style.button} onClick={() => handlerAdd()}>+</Button>
-            <Button variant="outlined" style={style.button} onClick={() => onAdd(count)}>
+            <Button variant="outlined" style={style.button} color="error" onClick={() => onAdd(count)}>
                 <AddShoppingCartIcon />
             </Button>
         </div>
@@ -39,4 +39,4 @@ const style = {
     }
 };
 
-export default ItemCount;
+export default ItemQuantitySelector;
