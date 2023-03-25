@@ -19,7 +19,7 @@ const Cart = () => {
     <>
       {!cart.length ? (
         <>
-          <h1>
+          <h1 style={{textAlign: "center", marginTop: 50}}>
             Tu carrito está vacío, agrega productos desde <Link to={"/"}>aquí</Link>
           </h1>
         </>
@@ -38,7 +38,7 @@ const Cart = () => {
                   <h3>Precio: {product.price}</h3>
                   <h3>Cantidad: {product.quantity}</h3>
                 </div>
-                  <Button variant="outlined" color="error" onClick={removeProduct(product.id)} >Eliminar</Button>
+                  <Button variant="outlined" color="error" onClick={() => {removeProduct(product.id)}} >Eliminar</Button>
                 </div>
                 </>
               );

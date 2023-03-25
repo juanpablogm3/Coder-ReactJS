@@ -34,7 +34,7 @@ export const ItemListContainer = ({ greeting }) => {
         
     return (
         <>
-            <h1 style={{textAlign:"center"}} >{greeting}</h1>
+            <h1 style={{textAlign:"center", marginTop: 50, marginBottom: 30}} >{greeting}</h1>
             {!error ? (
                 <>
                     {products.length ? (

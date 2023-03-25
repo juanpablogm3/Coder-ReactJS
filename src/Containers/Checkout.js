@@ -120,7 +120,7 @@ export const CheckoutForm = () => {
 
         <Form.Group controlId="formBasicExpiration">
           <Form.Label>Vencimiento</Form.Label>
-          <Form.Control required type="number" placeholder="MM/YY" value={cardExp} onChange={(event) => setCardExp(event.target.value)}/>
+          <Form.Control required type="number" placeholder="MMYY" value={cardExp} onChange={(event) => setCardExp(event.target.value)}/>
           <Form.Control.Feedback type="invalid">
             Ingrese vencimiento
           </Form.Control.Feedback>
