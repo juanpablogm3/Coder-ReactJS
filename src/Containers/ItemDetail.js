@@ -29,7 +29,7 @@ const ItemDetail = ({ product }) => {
       {isPressedButton ? (
         <Link to="/cart">
           <Button variant="contained">Finalizar compra</Button>
-            </Link>
+        </Link>
       ) : (
         <ItemQuantitySelector onAdd={onAdd} stock={product.stock}/>
       )}

@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "./components/header/NavBar";
-import ItemListContainer from "./containers/ItemListContainer";
-import { ItemDetailContainer } from "./containers/ItemDetailContainer";
-import Cart from "./containers/Cart";
+import Navbar from "./components/Header/NavBar";
+import ItemListContainer from "./Containers/ItemListContainer";
+import { ItemDetailContainer } from "./Containers/ItemDetailContainer";
+import Cart from "./Containers/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CustomProvider } from "./context/CustomContext";
-import { CheckoutForm } from "./containers/Checkout.js";
+import { CheckoutForm } from "./Containers/Checkout.js";
 
 const App = () => {
 

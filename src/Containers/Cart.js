@@ -7,12 +7,12 @@ import {db} from "../firebase/firestore";
 
 
 const Cart = () => {
-  const { cart, totals } = useContext(CustomContext);
-  console.log(cart);
+  const { cart, totals, removeProduct, clear } = useContext(CustomContext);
   const handlerStock = () => {
-    const docReference = doc(db, 'products', '5G145BGYpa42h9eHeAgH');
-    console.log(docReference.id);
-    //updateDoc(docReference, { id.stock : id.stock-product.quantity})
+    cart.forEach((result) => {
+      const docReference = doc(db, 'products', result.id);
+      updateDoc(docReference, { stock : result.stock-result.quantity})
+    })
   };
 
   return (
@@ -20,9 +20,8 @@ const Cart = () => {
       {!cart.length ? (
         <>
           <h1>
-            Tu carrito está vacío, puedes agregar productos desde <Link to={"/"}>aquí</Link>
+            Tu carrito está vacío, agrega productos desde <Link to={"/"}>aquí</Link>
           </h1>
-          <h2>Gracias por tu visita</h2>
         </>
       ) : (
         <>
@@ -39,6 +38,7 @@ const Cart = () => {
                   <h3>Precio: {product.price}</h3>
                   <h3>Cantidad: {product.quantity}</h3>
                 </div>
+                  <Button variant="outlined" color="error" onClick={removeProduct(product.id)} >Eliminar</Button>
                 </div>
                 </>
               );
@@ -49,6 +49,7 @@ const Cart = () => {
             <Link to="/CheckoutForm">
               <Button variant="contained" onClick={handlerStock}>Comprar</Button>
             </Link>
+            <Button variant="contained" color="error" onClick={clear}>Vaciar carrito</Button>
           </div>
         </>
       )}
