@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import ItemQuantitySelector from "../components/ItemQuantitySelector";
 import { Link } from "react-router-dom";
-import { CustomContext } from "../context/CustomContext";
+import { CartContext } from "../context/CartContext";
 import Button from '@mui/material/Button';
 
 const ItemDetail = ({ product }) => {
 
   const [isPressedButton, setIsPressedButton] = useState(false);
-  const { addProduct } = useContext(CustomContext);
+  const { addProduct } = useContext(CartContext);
 
   const onAdd = (count) => {
     setIsPressedButton(true);
@@ -16,7 +16,7 @@ const ItemDetail = ({ product }) => {
   };
 
   return (
-    <div style={{textAlign: "center"}}>
+    <>
       <div  style={styles.container}>
         <img alt={product.title} src={product.image} style={styles.image} />
         <div style={styles.content}>
@@ -27,21 +27,27 @@ const ItemDetail = ({ product }) => {
         </div>
       </div> 
       {isPressedButton ? (
-        <Link to="/cart">
-          <Button variant="contained">Finalizar compra</Button>
-        </Link>
+        <div style={styles.center}>
+          <Link to="/cart">
+            <Button variant="contained">Finalizar compra</Button>
+          </Link>
+        </div>
       ) : (
-        <ItemQuantitySelector onAdd={onAdd} stock={product.stock}/>
-      )}
-      <Link to="/">
-        <Button variant="outlined">Volver al listado</Button>
-      </Link>
-    </div>  
+        <div style={styles.center}>
+          <ItemQuantitySelector onAdd={onAdd} stock={product.stock}/>
+        </div>
+      )};
+      <div style={styles.center}>
+        <Link to="/">
+          <Button variant="outlined">Volver al listado</Button>
+        </Link>    
+      </div>
+    </>
   );
 };
 
 export default ItemDetail;
-
+  
 const styles = {
   container: {
     display: "flex",
@@ -54,5 +60,11 @@ const styles = {
   },
   content:{
     paddingLeft: 50,
+  },
+  center:{
+    display: "flex",
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center"
   }
 };

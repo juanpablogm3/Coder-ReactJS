@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "./components/Header/NavBar";
-import ItemListContainer from "./Containers/ItemListContainer";
-import { ItemDetailContainer } from "./Containers/ItemDetailContainer";
-import Cart from "./Containers/Cart";
+import Navbar from "./components/header/NavBar";
+import ItemListContainer from "./containers/ItemListContainer";
+import { ItemDetailContainer } from "./containers/ItemDetailContainer";
+import Cart from "./containers/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CustomProvider } from "./context/CustomContext";
-import { CheckoutForm } from "./Containers/Checkout.js";
+import { CartProvider } from "./context/CartContext";
+import { CheckoutForm } from "./containers/Checkout.js";
 
 const App = () => {
 
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <CustomProvider>
+        <CartProvider>
           <Navbar />
           <Routes>
             <Route path="/" element={<ItemListContainer greeting={greeting} />}/>
@@ -34,7 +34,7 @@ const App = () => {
             <Route path="/CheckoutForm" element={<CheckoutForm />} />
 
           </Routes>
-        </CustomProvider>
+        </CartProvider>
       </BrowserRouter>
     </>
   );

@@ -1,13 +1,17 @@
 import React, { createContext, useState, useEffect } from "react";
 
-export const CustomContext = createContext();
+export const CartContext = createContext();
 
-export const CustomProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [totals, setTotals] = useState({ qty: 0, total: 0 });
 
-
-
+    useEffect(() => {
+        const localStorageCart = JSON.parse(localStorage.getItem('cart'));
+        if (localStorageCart) {
+          setCart(localStorageCart);
+        }
+      }, []);
 
     useEffect(() => {
         let qtyInitial = 0;
@@ -17,6 +21,7 @@ export const CustomProvider = ({ children }) => {
             total += product.quantity * product.price;
         });
         setTotals({ qty: qtyInitial, total: total });
+        localStorage.setItem('cart', JSON.stringify(cart));        
     }, [cart]);
 
 
@@ -50,8 +55,8 @@ export const CustomProvider = ({ children }) => {
     };
 
     return (
-        <CustomContext.Provider value={{ cart, totals, addProduct, removeProduct, clear }}>
+        <CartContext.Provider value={{ cart, totals, addProduct, removeProduct, clear }}>
             {children}
-        </CustomContext.Provider>
+        </CartContext.Provider>
     );
 };

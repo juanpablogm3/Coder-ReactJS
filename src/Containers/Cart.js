@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {CustomContext} from "../context/CustomContext";
+import {CartContext} from "../context/CartContext";
 import {Link} from "react-router-dom";
 import Button from '@mui/material/Button';
 import {doc, updateDoc} from "firebase/firestore";
@@ -7,7 +7,7 @@ import {db} from "../firebase/firestore";
 
 
 const Cart = () => {
-  const { cart, totals, removeProduct, clear } = useContext(CustomContext);
+  const { cart, totals, removeProduct, clear } = useContext(CartContext);
   const handlerStock = () => {
     cart.forEach((result) => {
       const docReference = doc(db, 'products', result.id);
@@ -44,11 +44,13 @@ const Cart = () => {
               );
             })}
           </div>
-          <h1>Total : {totals.total}</h1>
+          <h1 style={{ textAlign: "center",marginBottom: 30}}>Total : {(totals.total).toFixed(2)}</h1>
           <div style={{ textAlign: "center",marginBottom: 30}}>
             <Link to="/CheckoutForm">
               <Button variant="contained" onClick={handlerStock}>Comprar</Button>
             </Link>
+          </div>
+          <div style={{ textAlign: "center",marginBottom: 30}}>
             <Button variant="contained" color="error" onClick={clear}>Vaciar carrito</Button>
           </div>
         </>

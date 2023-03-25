@@ -5,7 +5,6 @@ import {
   CardMedia,
   Typography,
   CardActionArea,
-  //CardActions,
 } from "@mui/material";
 import {Link} from 'react-router-dom'
 import { blue } from '@mui/material/colors';
