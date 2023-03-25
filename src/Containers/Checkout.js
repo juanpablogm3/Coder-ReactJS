@@ -30,6 +30,7 @@ export const CheckoutForm = () => {
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
+    console.log(form);
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
@@ -72,7 +73,7 @@ export const CheckoutForm = () => {
 
   return (
     <div style={{ maxWidth: "600px", margin: "auto", paddingTop: 30}}>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form validated={validated} onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicName"> 
           <Form.Label>Nombre</Form.Label>
           <Form.Control required type="text" placeholder="Ingrese su nombre completo" value={name} onChange={(event) => setName(event.target.value)}/>

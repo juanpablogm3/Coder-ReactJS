@@ -6,12 +6,12 @@ import Button from '@mui/material/Button';
 
 const ItemDetail = ({ product }) => {
 
-  const [isPressedButton, setIsPressedButton] = useState(false);
-  const { addProduct } = useContext(CartContext);
+  const [wasButtonPressed, setWasButtonPressed] = useState(false);
+  const { addItemButton } = useContext(CartContext);
 
   const onAdd = (count) => {
-    setIsPressedButton(true);
-    addProduct(product, count);
+    setWasButtonPressed(true);
+    addItemButton(product, count);
 
   };
 
@@ -26,7 +26,7 @@ const ItemDetail = ({ product }) => {
           <h2>Stock disponible: {product.stock} unidades</h2>        
         </div>
       </div> 
-      {isPressedButton ? (
+      {wasButtonPressed ? (
         <div style={styles.center}>
           <Link to="/cart">
             <Button variant="contained">Finalizar compra</Button>

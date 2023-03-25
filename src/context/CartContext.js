@@ -25,7 +25,7 @@ export const CartProvider = ({ children }) => {
     }, [cart]);
 
 
-    const addProduct = (product, quantity) => {
+    const addItemButton = (product, quantity) => {
         if (isInCart(product.id)) {
             setCart(
                 cart.map((productCart) => {
@@ -55,7 +55,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, totals, addProduct, removeProduct, clear }}>
+        <CartContext.Provider value={{ cart, totals, addItemButton, removeProduct, clear }}>
             {children}
         </CartContext.Provider>
     );
